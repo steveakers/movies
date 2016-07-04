@@ -1,4 +1,5 @@
 <?php
+
 include_once('../functions/functions.php');
 include_once('../classes/movie.php');
 
@@ -9,6 +10,7 @@ foreach($_REQUEST as $key=>$value) {
 }
 
 $movie = fnGetMovie($sTitle);
+
 ?>
 
 <div style="width:100%">

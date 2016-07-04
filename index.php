@@ -13,9 +13,7 @@
 
 $(document).ready(function() {
 	$("#title").keypress(function() {
-		if(event.keyCode == 13){
-			fnSubmitForm();
-		}
+		if(event.keyCode == 13) { fnSubmitForm(); }
 	});
 	
 	$("#btnSearch").click(function() {
@@ -24,8 +22,7 @@ $(document).ready(function() {
 });
 
 function fnSubmitForm() {
-	var arr = $('#frmFilter').serialize();
-	fnLoadMovie(arr);
+	fnLoadMovie($('#frmFilter').serialize());
 	$("#title").val("");
 }
 

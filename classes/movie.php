@@ -1,4 +1,5 @@
 <?php
+
 class movie {
 	public $nResults  = "";
 	public $sDirector = "";
@@ -13,9 +14,7 @@ class movie {
 	
 	// function to construct the class
 	public function __construct($json) {
-	    include_once('../functions/formatting.php');
-		
-		$aMovies   = json_decode($json, true);
+		$aMovies = json_decode($json, true);
 
 		$this->nResults  = $aMovies['resultCount'];
 		$this->sDirector = $aMovies['results'][0]['artistName'];
@@ -29,4 +28,5 @@ class movie {
 		$this->sLongDesc = $aMovies['results'][0]['longDescription'];
     }
 }
+
 ?>
