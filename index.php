@@ -1,11 +1,32 @@
 <?php include_once('includes/header.php'); ?>
 
-<p>
-	Title: 
-	<input id="title" type="text" name="title" onkeypress="if(event.keyCode == 13){fnShowMovie($('#title').val())}" autofocus> 
-	<button onclick="fnShowMovie($('#title').val())">Submit</button>
-</p>
+<form id="frmFilter" onsubmit="return false;">
+	Title: <input id="title" type="text" name="title" autofocus> 
+	<input type="button" id="btnSearch" value="Search">
+</form>
 
 <div id="content"></div>
 
 <?php include_once('includes/footer.php'); ?>
+
+<script type="text/javascript">
+
+$(document).ready(function() {
+	$("#title").keypress(function() {
+		if(event.keyCode == 13){
+			fnSubmitForm();
+		}
+	});
+	
+	$("#btnSearch").click(function() {
+		fnSubmitForm();
+	});
+});
+
+function fnSubmitForm() {
+	var arr = $('#frmFilter').serialize();
+	fnLoadMovie(arr);
+	$("#title").val("");
+}
+
+</script>

@@ -1,8 +1,14 @@
 <?php
+include_once('../functions/functions.php');
 include_once('../classes/movie.php');
 
-$json  = file_get_contents('php://input');
-$movie = new movie($json);
+foreach($_REQUEST as $key=>$value) {
+	if(!is_array($value) && $key == "title") {
+		$sTitle = str_replace(" ", "+", $value);
+	}
+}
+
+$movie = fnGetMovie($sTitle);
 ?>
 
 <div style="width:100%">
